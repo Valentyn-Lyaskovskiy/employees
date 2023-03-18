@@ -1,3 +1,4 @@
+import Filter from "../app-filter/app-filter";
 import AppInfo from "../app-info/app-info";
 import Search from "../search/search";
 
@@ -10,6 +11,7 @@ function App() {
 
       <div className="search">
         <Search />
+        <Filter />
       </div>
     </div>
   )
