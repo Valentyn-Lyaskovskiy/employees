@@ -1,12 +1,12 @@
 import EmployeesListItem from "../employees-list-item/employees-list-item";
 
 import "./employees-list.css";
-const EmployeesList = () => {
+const EmployeesList = (props) => {
   return (
     <ul className="app-list list-group">
-      <EmployeesListItem />
-      <EmployeesListItem />
-      <EmployeesListItem />
+      <EmployeesListItem name="Roman Nadurak" />
+      <EmployeesListItem name='John Smith' />
+      <EmployeesListItem name='Sandra Bell' />
     </ul>
   );
 };

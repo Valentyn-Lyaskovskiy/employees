@@ -3,6 +3,7 @@ import AppInfo from "../app-info/app-info";
 import Search from "../search/search";
 import EmployeesList from "../employees-list/employees-list";
 import "./app.css";
+import EmployeesAddForm from "../employees-add-form/employees-add-form";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       </div>
 
       <EmployeesList />
+      <EmployeesAddForm />
     </div>
   );
 }
