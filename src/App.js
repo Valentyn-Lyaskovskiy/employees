@@ -7,6 +7,7 @@ class Test extends Component {
     super(props);
     this.state = {
       start: 0,
+      position: "",
     };
   }
 
@@ -37,8 +38,15 @@ class Test extends Component {
     }));
   };
 
+  addPosition = (e) => {
+    this.setState({
+      position: e.target.value,
+    });
+  };
+
   render() {
     const { firstName, lastName } = this.props;
+    const { start, position } = this.state;
     return (
       <div div>
         <button onClick={this.add}>Add</button>
@@ -47,8 +55,16 @@ class Test extends Component {
         <button onClick={this.reset}>Reset</button>
         <img width={50} src={logo} alt="react logo" />
         <h1>
-          My name is {firstName} {lastName}, {this.state.start}
+          My name is {firstName}
+          {lastName}, {start} -{position}
         </h1>
+        <form>
+          <input
+            onChange={this.addPosition}
+            type="text"
+            placeholder="Enter a position"
+          />
+        </form>
       </div>
     );
   }
@@ -57,8 +73,8 @@ class Test extends Component {
 function App() {
   return (
     <div>
-      <Test firstName="Valentyn" lastName="Lyaskovskiy" />
-      <Test firstName="Valentyn" lastName="Lyaskovskiy" />
+      <Test firstName="Valentyn" lastName="  Lyaskovskiy" />
+      <Test firstName="Valentyn" lastName="  Lyaskovskiy" />
     </div>
     // <div className="App">
     //   <header className="App-header">
