@@ -1,38 +1,64 @@
-import { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class Test extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      years: 47
-    }
+      start: 0,
+    };
   }
 
-  nextYear = () => {
-    this.setState(state => ({
-      years: state.years + 1
-    }))
-    // console.log(1221);
-  }
+  add = () => {
+    if (this.state.start < 10) {
+      this.setState((state) => ({
+        start: state.start + 1,
+      }));
+    }
+    if (this.state.start === 10) alert("10 is maximum!");
+  };
+
+  sub = () => {
+    this.setState((state) => ({
+      start: state.start - 1,
+    }));
+  };
+
+  reset = () => {
+    this.setState((state) => ({
+      start: state.start * 0,
+    }));
+  };
+
+  random = () => {
+    this.setState((state) => ({
+      start: Math.floor(Math.random(state.start) * 10),
+    }));
+  };
 
   render() {
-    const { firstName, lastName } = this.props
+    const { firstName, lastName } = this.props;
     return (
-      <div div >
-        <button onClick={this.nextYear}>+++</button>
-        <h1>My name is {firstName} {lastName}, age - {this.state.years}</h1>
-      </div >
-    )
+      <div div>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.sub}>Subtract</button>
+        <button onClick={this.random}>Random</button>
+        <button onClick={this.reset}>Reset</button>
+        <img width={50} src={logo} alt="react logo" />
+        <h1>
+          My name is {firstName} {lastName}, {this.state.start}
+        </h1>
+      </div>
+    );
   }
 }
 
 function App() {
   return (
     <div>
-      <Test firstName='Valentyn' lastName='Lyaskovskiy' />
-      <Test firstName='Valentyn' lastName='Lyaskovskiy' />
+      <Test firstName="Valentyn" lastName="Lyaskovskiy" />
+      <Test firstName="Valentyn" lastName="Lyaskovskiy" />
     </div>
     // <div className="App">
     //   <header className="App-header">
